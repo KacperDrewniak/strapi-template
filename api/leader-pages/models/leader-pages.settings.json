@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "leader_pages",
+  "info": {
+    "name": "leaderPages"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "imie": {
+      "type": "string"
+    },
+    "nazwisko": {
+      "type": "string"
+    },
+    "motto": {
+      "type": "string"
+    },
+    "obraz": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "tekst": {
+      "type": "richtext"
+    },
+    "users": {
+      "plugin": "users-permissions",
+      "collection": "user",
+      "via": "leader_page"
+    }
+  }
+}
